@@ -1,3 +1,33 @@
+<?php
+    if (isset($_POST['submit'])) { //kiểm tra người dùng đã bấm submit hay chưa?
+        $a = $_POST['a'];
+        $b = $_POST['b'];
+        $operator = $_POST['operator'];
+        switch ($operator) {
+            case '+':
+                //code logic của case
+                echo $a + $b;
+                break;
+            case '-':
+                echo $a - $b;
+                break;
+            case '*':
+                echo $a*$b;
+                break;
+            case '/':
+                if ($b == 0) {
+                    echo "Không được chia cho 0";
+                } else {
+                    echo $a/$b;
+                }
+                break;
+            default: 
+                echo "Phép tính không hợp lệ";
+                break;
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +36,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
+    <form action="./switch.php" method="POST">
         <div>
             <label for="">Số a</label>
             <input type="number" name="a">
@@ -24,7 +54,7 @@
                 <option value="/">/</option>
             </select>
         </div>
-        <button type="submit">Tính</button>
+        <input type="submit" name="submit" value="Tính">
     </form>
 </body>
 </html>
