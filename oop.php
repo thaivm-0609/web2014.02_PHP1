@@ -28,6 +28,10 @@ class SinhVien {
     public function diHoc() {
         echo "Xe máy";
     }
+
+    public function hienThiThongTin() {
+        echo 'Tên:' .$this->ten.'<br> Năm sinh:'.$this->namSinh.'<br> Giới tính:'.$this->gioiTinh;
+    }
 }
 
 /** object
@@ -35,6 +39,7 @@ class SinhVien {
  * truy suất thuộc tính của object: $tenObject->tenThuocTinh;
  */
 $nguyenVanA = new SinhVien('thaivm2', 1900, 'Male');
-$nguyenVanA->ten = 'Vương Minh Thái';
-var_dump($nguyenVanA->ten);
+// $nguyenVanA->ten = 'Vương Minh Thái';
+// $nguyenVanA->hienThiThongTin(); //gọi hàm hienThiThongTin;
+var_dump($nguyenVanA);
 ?>
