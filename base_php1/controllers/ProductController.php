@@ -9,5 +9,11 @@ class ProductController {
     }
     
     //$this->tenObject->tenHam();
+    public function list() {
+        //gọi hàm getProduct() ở model 
+        $products = $this->product->getProduct();
+        
+        require_once './views/list.php';
+    }
 }
 ?>

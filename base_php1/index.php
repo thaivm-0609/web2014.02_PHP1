@@ -7,13 +7,17 @@ require_once './commons/function.php';
 require_once './controllers/ProductController.php';
 
 //require models
-require_once '/models/Product.php';
+require_once './models/Product.php';
 
 //điều hướng (router)
 $act = isset($_GET['act']) ? $_GET['act'] : '/';
 switch ($act) {
     case '/':
         echo "Đây là trang chủ";
+        break;
+    case 'list':
+        //khởi tạo một object từ class ProductController và gọi hàm list();
+        (new ProductController())->list();
         break;
     default:
         echo "404 - Not found";
