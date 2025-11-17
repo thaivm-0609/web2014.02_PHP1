@@ -19,6 +19,12 @@ switch ($act) {
         //khởi tạo một object từ class ProductController và gọi hàm list();
         (new ProductController())->list();
         break;
+    case 'detail':
+        (new ProductController())->detail();
+        break;
+    case 'delete':
+        (new ProductController())->delete();
+        break;
     default:
         echo "404 - Not found";
         break;
