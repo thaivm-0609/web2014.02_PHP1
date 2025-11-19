@@ -9,4 +9,6 @@ define('DB_PORT', 3306); //cổng kết nối
 define('DB_NAME', 'php_1'); //tên database sẽ kết nối
 define('DB_USERNAME', 'root'); 
 define('DB_PASSWORD', '');
+
+define('PATH_ROOT', __DIR__ . '/../');
 ?>

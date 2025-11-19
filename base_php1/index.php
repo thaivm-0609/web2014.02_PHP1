@@ -8,6 +8,7 @@ require_once './controllers/ProductController.php';
 
 //require models
 require_once './models/Product.php';
+require_once './models/Category.php';
 
 //điều hướng (router)
 $act = isset($_GET['act']) ? $_GET['act'] : '/';
@@ -24,6 +25,12 @@ switch ($act) {
         break;
     case 'delete':
         (new ProductController())->delete();
+        break;
+    case 'create':
+        (new ProductController())->create();
+        break;
+    case 'update':
+        (new ProductController())->update();
         break;
     default:
         echo "404 - Not found";

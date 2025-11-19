@@ -34,5 +34,13 @@ class Product {
         
         return $stmt->execute();
     }
+
+    public function store($name, $price, $categoryId, $image) {
+        $sql = "INSERT INTO products (name, price, category_id, image)
+            VALUES ('$name', '$price', '$categoryId', '$image')";
+        $stmt = $this->connection->prepare($sql);
+
+        return $stmt->execute();
+    }
 }
 ?>

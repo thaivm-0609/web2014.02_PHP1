@@ -34,7 +34,7 @@
                     <td><?= $p['category_id'] ?></td>
                     <td><?= $p['price'] ?></td>
                     <td>
-                        <img src="<?= $p['image'] ?>" alt="">
+                        <img style="width: 100px" src="./uploads/<?= $p['image'] ?>" alt="">
                     </td>
                     <td>
                         <a 
