@@ -42,5 +42,15 @@ class Product {
 
         return $stmt->execute();
     }
+
+    public function update($id, $name, $price, $categoryId, $image)
+    {
+        $sql = "UPDATE products 
+            SET name='$name',price='$price',category_id='$categoryId', image='$image'
+            WHERE id=$id";
+        $stmt = $this->connection->prepare($sql);
+
+        return $stmt->execute();
+    }
 }
 ?>

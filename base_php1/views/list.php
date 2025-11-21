@@ -43,7 +43,12 @@
                         >
                             Detail
                         </a>
-                        <a href="" type="button">Edit</a>
+                        <a 
+                            href="index.php?act=update&id=<?= $p['id'] ?>" 
+                            type="button"
+                        >
+                            Edit
+                        </a>
                         <a 
                             onclick="return confirm('Bạn có chắc không?')"
                             href="index.php?act=delete&id=<?= $p['id'] ?>" 
