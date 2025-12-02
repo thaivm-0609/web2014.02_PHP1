@@ -40,14 +40,27 @@ class ProductController {
             $price = $_POST['price'];
             $categoryId = $_POST['category_id'];
             $image = $_FILES['image']; //file upload lên sẽ được gửi qua $_FILES
-            //upload file
-            $from = $image['tmp_name'];//vị trí file tạm thời (tmp_name)
-            $targetFolder = PATH_ROOT . 'uploads/';//vị trí thư mục lưu trữ file
-            $to = $targetFolder.basename($image['name']);//ghép thư mục lưu trữ + tên file
-            move_uploaded_file($from, $to);
-            //lưu dữ liệu vào trong db
-            $this->product->store($name, $price, $categoryId, $image['name']);
-            header('location: index.php?act=list');
+            
+            //validate dữ liệu (kiểm tra dữ liệu có hợp lệ không)
+            $errorCount = 0;
+            if (strlen($name) < 3 //cột name nhập ít hơn 3 ký tự
+                || $price < 0 //cột price nhập giá trị âm
+                || $image['error'] != 0 //cột image lỗi
+            ) { 
+                $errorCount += 1;
+            }
+
+            if ($errorCount == 0) { //nếu dữ liệu nhập vào hợp lệ
+                //upload file
+                $from = $image['tmp_name'];//vị trí file tạm thời (tmp_name)
+                $targetFolder = PATH_ROOT . 'uploads/';//vị trí thư mục lưu trữ file
+                $to = $targetFolder.basename($image['name']);//ghép thư mục lưu trữ + tên file
+                move_uploaded_file($from, $to);
+                //lưu dữ liệu vào trong db
+                $this->product->store($name, $price, $categoryId, $image['name']);
+                header('location: index.php?act=list');
+            }
+            
         }
         //hiển thị form
         $categories = $this->category->getCategories();

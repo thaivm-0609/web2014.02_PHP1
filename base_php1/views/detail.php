@@ -10,7 +10,7 @@
     <p>ID: <?= $product['id'] ?></p>
     <p>Name: <?= $product['name'] ?></p>
     <p>Price: <?= $product['price'] ?></p>
-    <p>Category: <?= $product['category_id'] ?></p>
+    <p>Category: <?= $product['category_name'] ?></p>
     <p>Image:</p>
     <img src="<?= $product['image'] ?>" alt="">
 </body>

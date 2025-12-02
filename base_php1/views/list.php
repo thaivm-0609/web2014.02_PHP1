@@ -31,7 +31,7 @@
                 <tr>
                     <td><?php echo $p['id'] ?></td>
                     <td><?= $p['name'] ?></td>
-                    <td><?= $p['category_id'] ?></td>
+                    <td><?= $p['category_name'] ?></td>
                     <td><?= $p['price'] ?></td>
                     <td>
                         <img style="width: 100px" src="./uploads/<?= $p['image'] ?>" alt="">
